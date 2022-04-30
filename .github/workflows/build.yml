@@ -9,7 +9,7 @@ jobs:
   buildAUR:
     strategy:
       matrix:
-        repos: [ darling-bin ]
+        repos: [ qv2ray-git ]
 
       fail-fast: false
       

@@ -1,0 +1,98 @@
+# Maintainer: James Brink <brink.james@gmail.com>
+# Contributor: X0rg
+
+_gitname=darling
+pkgbase=$_gitname
+pkgname=('darling' 'darling-mach-dkms')
+pkgver=r3131.fa5348c8a
+pkgrel=1
+pkgdesc="Darwin/macOS emulation layer for Linux (Stable)"
+arch=('x86_64')
+url="http://www.darlinghq.org"
+license=('GPL3')
+groups=('darling')
+depends=('xz' 'fuse' 'libxml2' 'icu' 'openssl' 'bzip2' 'zlib' 'libsystemd'
+    'wget' 'curl' 'sqlite' 'ruby' 'sed' 'libarchive' 'file' 'python' 'gawk' 'libunwind' 'libavresample') # namcap complains about them
+_depends_x86_64=('lib32-clang' 'lib32-bzip2' 'lib32-systemd' 'lib32-libxslt' 'libpng' 'cairo' 'libtiff' 'glu' 'libbsd' 'python2')
+makedepends=('git' 'cmake' 'clang' 'dkms' 'bison' 'flex' 'binutils>=2.28' 'libpng' 'cairo' 'libtiff' 'glu' 'libbsd' 'python2' 'linux-headers' 'libavresample')
+_make_depends_x86_64=('gcc-multilib')
+
+# Darling git repo and all submodules.
+source=('dkms.conf'
+       )
+
+# We skip md5 on all git repos
+md5sums=('21481865cc96f636f3a47f4d04980fce'
+       )
+options=('!buildflags')
+
+pkgver() {
+    cd "$srcdir"
+    git clone --recursive https://github.com/darlinghq/darling.git
+    cd darling
+
+
+    #printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+prepare() {
+    cd "$srcdir/$_gitname"
+
+    echo "Initialize git submodules."
+    git lfs install
+    git pull
+    git submodule init
+    git submodule update
+
+    echo "Creating build directory."
+    cd "$srcdir/$_gitname"
+    mkdir -pv "build"
+}
+
+build() {
+    cd "$srcdir/$_gitname/build"
+
+    echo "Running cmake."
+    cmake .. -DCMAKE_INSTALL_PREFIX=/usr
+
+    echo "Running make."
+    make 
+
+    echo "Run 'make lkm'..."
+    make lkm 
+}
+
+package_darling() {
+    install=darling.install
+    depends=('darling-mach-dkms')
+    conflicts=('darling')
+    provides=('darling')
+
+    cd "$srcdir/$_gitname/build"
+    make DESTDIR="$pkgdir" install 
+}
+
+package_darling-mach-dkms() {
+    depends=('dkms')
+    conflicts=('darling-mach-dkms')
+    provides=('darling-mach-dkms')
+    optdepends=('linux-headers: build modules against the Arch kernel'
+                'linux-lts-headers: build modules against the LTS kernel'
+                'linux-zen-headers: build modules against the ZEN kernel'
+                'linux-grsec-headers: build modules against the GRSEC kernel')
+    _srcdest="$pkgdir/usr/src/darling-mach-$pkgver"
+    _srcinstalldest="/usr/src/darling-mach-$pkgver"
+
+    echo "Install module sources for DKMS."
+    install -dm755 $(dirname "$_srcdest")
+    cp -r "$srcdir/$_gitname/src/external/lkm"       "$_srcdest"
+    cp -r "$srcdir/$_gitname/build/src/external/lkm" "$_srcdest/migdir"
+  
+    # Copy missing header rtsig.h
+    cp "$srcdir/$_gitname/build/src/startup/rtsig.h" "$_srcdest/include"
+
+    echo "Set configuration for DKMS..."
+    install -Dm644 "$srcdir/dkms.conf"      "$_srcdest"
+    sed -i "s|@PKGVER@|$pkgver|g"           "$_srcdest/dkms.conf"
+    sed -i "s|@SRCDEST@|$_srcinstalldest|g"        "$_srcdest/dkms.conf"
+}
