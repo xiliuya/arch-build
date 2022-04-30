@@ -30,9 +30,9 @@ pkgver() {
     cd "$srcdir/$_gitname"
     #cd darling
 
-    echo "i don't konw why ?"
+    #echo "i don't konw why ?"
 
-    #printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+    printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
 
 prepare() {
