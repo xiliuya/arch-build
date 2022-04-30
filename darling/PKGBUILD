@@ -28,14 +28,15 @@ options=('!buildflags')
 
 pkgver() {
     cd "$srcdir"
-    git clone --recursive https://github.com/darlinghq/darling.git
-    cd darling
+    #cd darling
 
 
     #printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
 
 prepare() {
+    git clone --recursive https://github.com/darlinghq/darling.git
+
     cd "$srcdir/$_gitname"
 
     echo "Initialize git submodules."
