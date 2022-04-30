@@ -14,7 +14,7 @@ groups=('darling')
 depends=('xz' 'fuse' 'libxml2' 'icu' 'openssl' 'bzip2' 'zlib' 'libsystemd'
     'wget' 'curl' 'sqlite' 'ruby' 'sed' 'libarchive' 'file' 'python' 'gawk' 'libunwind' 'libavresample') # namcap complains about them
 _depends_x86_64=('lib32-clang' 'lib32-bzip2' 'lib32-systemd' 'lib32-libxslt' 'libpng' 'cairo' 'libtiff' 'glu' 'libbsd' 'python2')
-makedepends=('git' 'git-lfs' 'cmake' 'clang' 'dkms' 'bison' 'flex' 'pkg-config' 'fontconfig' 'binutils>=2.28' 'libpng' 'cairo' 'libtiff' 'glu' 'libbsd' 'python2' 'mesa' 'libxkbfile' 'libxcursor' 'libxext' 'libxkbcommon' 'libxrandr' 'ffmpeg' ' lib32-gcc-libs'  'linux-headers' 'libavresample')
+makedepends=('git' 'git-lfs' 'cmake' 'clang' 'dkms' 'bison' 'flex' 'pkg-config' 'fontconfig' 'binutils>=2.28' 'libpng' 'cairo' 'libtiff' 'glu' 'libbsd' 'python2' 'mesa' 'libxkbfile' 'libxcursor' 'libxext' 'libxkbcommon' 'libxrandr' 'ffmpeg' 'lib32-gcc-libs' 'linux-headers' 'libavresample')
 _make_depends_x86_64=('gcc-multilib')
 
 # Darling git repo and all submodules.
