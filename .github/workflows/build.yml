@@ -9,7 +9,7 @@ jobs:
   buildAUR:
     strategy:
       matrix:
-        repos: [ qv2ray-git ]
+        repos: [ hello ]
 
       fail-fast: false
       
@@ -37,7 +37,7 @@ jobs:
   buildNonAUR:
     strategy:
       matrix:
-        PKGBUILDs: [ darling ]
+        PKGBUILDs: [ hello ]
 
       fail-fast: false
       
