@@ -4,9 +4,10 @@ COPY entrypoint.sh /entrypoint.sh
 
 USER root
 
-RUN pacman -Syy --noconfirm --needed \
+RUN pacman -Syu --noconfirm --needed \
 	&& pacman -S linux-lts-headers --noconfirm \
-	&&  ln -s /lib/modules/`ls /lib/modules/`/ /lib/modules/$(uname -r)
+	&&  ln -s /lib/modules/`ls /lib/modules/`/ /lib/modules/$(uname -r) \
+	&& uname -a 
 
 
 ENTRYPOINT ["/entrypoint.sh"]
