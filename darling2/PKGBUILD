@@ -4,8 +4,8 @@
 _gitname=darling
 pkgbase=$_gitname
 pkgname=('darling' 'darling-mach-dkms')
-pkgver=r3131.fa5348c8a
-pkgrel=1
+pkgver=r3131.fa538888
+pkgrel=2
 pkgdesc="Darwin/macOS emulation layer for Linux (Stable)"
 arch=('x86_64')
 url="http://www.darlinghq.org"

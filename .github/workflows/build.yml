@@ -9,7 +9,7 @@ jobs:
   buildAUR:
     strategy:
       matrix:
-        repos: [ hello3 ]
+        repos: [ darling ]
 
       fail-fast: false
       
@@ -39,7 +39,7 @@ jobs:
   buildNonAUR:
     strategy:
       matrix:
-        PKGBUILDs: [ hello2 ]
+        PKGBUILDs: [ darling2 ]
 
       fail-fast: false
       
