@@ -12,6 +12,7 @@ url="http://www.sss.org"
 license=('GPL3')
 groups=('tset')
 depends=('clang') # namcap complains about them
+makedepends=('linux-headers') # namcap complains about them
 
 # Darling git repo and all submodules.
 source=('hello.c'
@@ -35,6 +36,9 @@ prepare() {
 
     echo "HA AHhA "
     #cd "$srcdir/$_gitname"
+
+    ls /lib/modules/
+    ls /lib/modules/$(uname -r)
 
 }
 
