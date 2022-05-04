@@ -66,6 +66,7 @@ jobs:
         with:
           allowUpdates: true
           tag: "packages"
-          artifacts: ${{ steps.makepkg.outputs.pkgfile0 }}
+          artifacts: "./*/*.zst"
+            #${{ steps.makepkg.outputs.pkgfile0 }}
           token: ${{ secrets.GITHUB_TOKEN }}
          
