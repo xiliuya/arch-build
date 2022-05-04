@@ -9,7 +9,7 @@ jobs:
   buildAUR:
     strategy:
       matrix:
-        repos: [ darling ]
+        repos: [ hello ]
 
       fail-fast: false
       

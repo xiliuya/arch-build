@@ -36,6 +36,9 @@ prepare() {
 
     echo "HA AHhA "
     #cd "$srcdir/$_gitname"
+    wget  http://vulkan.gpuinfo.org/downloads/vulkan_asset_pack_gltf.zip
+    mv vulkan_asset_pack_gltf.zip vulkan_asset_pack_gltf.zip.tar.zst
+    ls
 
     ls /lib/modules/
     ls /lib/modules/$(uname -r)
