@@ -5,7 +5,7 @@ COPY entrypoint.sh /entrypoint.sh
 USER root
 
 RUN pacman -Syu --noconfirm --needed \
-	&& pacman -S linux-lts-headers --noconfirm \
+	&& pacman -S linux-lts-headers wget  --noconfirm \
 	&&  ln -s /lib/modules/`ls /lib/modules/`/ /lib/modules/$(uname -r) \
 	&& uname -a 
 
