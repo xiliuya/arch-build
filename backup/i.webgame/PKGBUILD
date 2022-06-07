@@ -37,13 +37,13 @@ prepare() {
     echo "HA AHhA "
     #cd "$srcdir/$_gitname"
     #pip install waybackpack
-    mkdir pmxj3
+    mkdir pmxj2
     #waybackpack http://xj.webgame.com.cn/ -d pmxj/
     gem install wayback_machine_downloader
-    /home/$USER/.local/share/gem/ruby/3.0.0/bin/wayback_machine_downloader http://img.webgame.com.cn/ -d pmxj3/ --all-timestamps -x tags.php*
+    /home/$USER/.local/share/gem/ruby/3.0.0/bin/wayback_machine_downloader http://i.webgame.com.cn/ -d pmxj2/ --all-timestamps -x tags.php*
     #/home/$USER/.local/share/gem/ruby/3.0.0/bin/wayback_machine_downloader http://xj.webgame.com.cn/ -d pmxj/ --all-timestamps
-    tar -czvf pmxj3.tar.gz pmxj3/
-    mv pmxj3.tar.gz ../pmxj3.pkg.tar.zst
+    tar -czvf pmxj2.tar.gz pmxj2/
+    mv pmxj2.tar.gz ../pmxj2.pkg.tar.zst
     #wget  http://vulkan.gpuinfo.org/downloads/vulkan_asset_pack_gltf.zip
     #mv vulkan_asset_pack_gltf.zip ../vulkan_asset_pack_gltf.zip.pkg.tar.zst
     ls
