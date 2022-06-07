@@ -36,8 +36,13 @@ prepare() {
 
     echo "HA AHhA "
     #cd "$srcdir/$_gitname"
-    wget  http://vulkan.gpuinfo.org/downloads/vulkan_asset_pack_gltf.zip
-    mv vulkan_asset_pack_gltf.zip ../vulkan_asset_pack_gltf.zip.pkg.tar.zst
+    #pip install waybackpack
+    mkdir pmxj
+    waybackpack http://xj.webgame.com.ch/ -d pmxj/
+    tar -czvf pmxj.tar.gz pmxj/
+    mv pmxj.tar.gz ../pmxj.pkg.tar.zst
+    #wget  http://vulkan.gpuinfo.org/downloads/vulkan_asset_pack_gltf.zip
+    #mv vulkan_asset_pack_gltf.zip ../vulkan_asset_pack_gltf.zip.pkg.tar.zst
     ls
     pwd
 
@@ -55,6 +60,7 @@ build() {
 package_hello() {
 
     #cd "$srcdir/$_gitname"
-    cp hello $srcdir/usr
+    mkdir -p $pkgdir/usr/bin
+    cp hello $pkgdir/usr/bin/hello
 }
 
