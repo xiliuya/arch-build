@@ -11,7 +11,8 @@ RUN pacman -Syu --noconfirm --needed \
 	&& mkdir -p /root/.local/share/gem/ruby/3.0.0/bin \
 	&& export PATH="/root/.local/share/gem/ruby/3.0.0/bin:$PATH" \
 	&& gem install wayback_machine_downloader \
-	&& ls /root/.local/share/gem/ruby/3.0.0/bin \
+	&& ls  -lh /root/.local/share/gem/ruby/3.0.0/bin \
+	&& chmod -R 777 /root/.local/ \
 	&& uname -a 
 
 
