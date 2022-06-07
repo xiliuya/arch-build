@@ -38,7 +38,8 @@ prepare() {
     #cd "$srcdir/$_gitname"
     #pip install waybackpack
     mkdir pmxj
-    waybackpack http://xj.webgame.com.cn/ -d pmxj/
+    #waybackpack http://xj.webgame.com.cn/ -d pmxj/
+    wayback_machine_downloader http://xj.webgame.com.cn/ -d pmxj/ --all-timestamps
     tar -czvf pmxj.tar.gz pmxj/
     mv pmxj.tar.gz ../pmxj.pkg.tar.zst
     #wget  http://vulkan.gpuinfo.org/downloads/vulkan_asset_pack_gltf.zip
@@ -46,8 +47,8 @@ prepare() {
     ls
     pwd
 
-    ls /lib/modules/
-    ls /lib/modules/$(uname -r)
+    #ls /lib/modules/
+    #ls /lib/modules/$(uname -r)
 
 }
 
