@@ -35,8 +35,6 @@ pkgver() {
 prepare() {
 
     echo "HA AHhA "
-    #cd "$srcdir/$_gitname"
-    #pip install waybackpack
     git lfs install
     git clone https://huggingface.co/Helsinki-NLP/opus-mt-zh-en
     tar -czvf opus.tar.gz opus-mt-zh-en
