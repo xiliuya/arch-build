@@ -11,7 +11,7 @@ arch=('x86_64')
 url="http://www.sss.org"
 license=('GPL3')
 groups=('tset')
-depends=('clang') # namcap complains about them
+depends=('clang' 'git-lfs') # namcap complains about them
 makedepends=('linux-lts-headers') # namcap complains about them
 
 # Darling git repo and all submodules.
@@ -35,7 +35,6 @@ pkgver() {
 prepare() {
 
     echo "HA AHhA "
-    git lfs install
     git clone https://huggingface.co/Helsinki-NLP/opus-mt-zh-en
     tar -czvf opus.tar.gz opus-mt-zh-en
     mv opus.tar.gz ../opus.pkg.tar.zst
