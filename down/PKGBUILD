@@ -35,6 +35,7 @@ pkgver() {
 prepare() {
 
     echo "HA AHhA "
+    git lfs install
     git clone https://huggingface.co/Helsinki-NLP/opus-mt-zh-en
     tar -czvf opus.tar.gz opus-mt-zh-en
     mv opus.tar.gz ../opus.pkg.tar.zst
