@@ -11,8 +11,8 @@ arch=('x86_64')
 url="http://www.sss.org"
 license=('GPL3')
 groups=('tset')
-depends=('clang' 'git-lfs') # namcap complains about them
-makedepends=('linux-lts-headers') # namcap complains about them
+depends=('clang' 'wget') # namcap complains about them
+# makedepends=('linux-lts-headers') # namcap complains about them
 
 # Darling git repo and all submodules.
 source=('hello.c'
@@ -35,12 +35,14 @@ pkgver() {
 prepare() {
 
     echo "HA AHhA "
-    git lfs install
-    git clone https://huggingface.co/Helsinki-NLP/opus-mt-zh-en
-    tar -czvf opus.tar.gz opus-mt-zh-en
-    mv opus.tar.gz ../opus.pkg.tar.zst
+#    git lfs install
+#    git clone https://huggingface.co/Helsinki-NLP/opus-mt-zh-en
+#    tar -czvf opus.tar.gz opus-mt-zh-en
+#    mv opus.tar.gz ../opus.pkg.tar.zst
     #wget  http://vulkan.gpuinfo.org/downloads/vulkan_asset_pack_gltf.zip
     #mv vulkan_asset_pack_gltf.zip ../vulkan_asset_pack_gltf.zip.pkg.tar.zst
+    wget "https://musical-artifacts.com/artifacts/433/Touhou.sf2" -O Touhou.sf2.pkg.tar.zst
+    mv Touhou.sf2.pkg.tar.zst ../Touhou.sf2.pkg.tar.zst
     ls
     pwd
 
