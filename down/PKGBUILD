@@ -41,8 +41,8 @@ prepare() {
 #    mv opus.tar.gz ../opus.pkg.tar.zst
     #wget  http://vulkan.gpuinfo.org/downloads/vulkan_asset_pack_gltf.zip
     #mv vulkan_asset_pack_gltf.zip ../vulkan_asset_pack_gltf.zip.pkg.tar.zst
-    wget "https://musical-artifacts.com/artifacts/433/Touhou.sf2" -O Touhou.sf2.pkg.tar.zst
-    mv Touhou.sf2.pkg.tar.zst ../Touhou.sf2.pkg.tar.zst
+    wget "https://musical-artifacts.com/artifacts/855/SGM-v2.01-NicePianosGuitarsBass-V1.2.sf2" -O Touhou.sf2.pkg.tar.zst
+    mv Touhou.sf2.pkg.tar.zst ../SGM-v2.sf2.pkg.tar.zst
     ls
     pwd
 
