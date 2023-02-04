@@ -41,8 +41,22 @@ prepare() {
 #    mv opus.tar.gz ../opus.pkg.tar.zst
     #wget  http://vulkan.gpuinfo.org/downloads/vulkan_asset_pack_gltf.zip
     #mv vulkan_asset_pack_gltf.zip ../vulkan_asset_pack_gltf.zip.pkg.tar.zst
-    wget "https://musical-artifacts.com/artifacts/855/SGM-v2.01-NicePianosGuitarsBass-V1.2.sf2" -O Touhou.sf2.pkg.tar.zst
-    mv Touhou.sf2.pkg.tar.zst ../SGM-v2.sf2.pkg.tar.zst
+    #wget "https://musical-artifacts.com/artifacts/855/SGM-v2.01-NicePianosGuitarsBass-V1.2.sf2" -O Touhou.sf2.pkg.tar.zst
+    #mv Touhou.sf2.pkg.tar.zst ../SGM-v2.sf2.pkg.tar.zst
+    wget "https://musical-artifacts.com/artifacts/2466/OmniSynth_Pro_GM.sf2" -O OmniSynth.sf2.pkg.tar.zst
+    #mv OmniSynth.sf2.pkg.tar.zst ../OmniSynth.sf2.pkg.tar.zst
+    
+    wget "https://musical-artifacts.com/artifacts/2417/Pokemon_Colosseum_SoundFont_GM.sf2" -O Pokemon.sf2.pkg.tar.zst
+    #mv Pokemon.sf2.pkg.tar.zst ../Pokemon.sf2.pkg.tar.zst
+
+    wget "https://musical-artifacts.com/artifacts/1234/ColomboGMGS2__SF2_.zip" -O ColomboGMGS2.sf2.pkg.tar.zst
+    #mv ColomboGMGS2.sf2.pkg.tar.zst ../ColomboGMGS2.sf2.pkg.tar.zst
+
+    wget "https://musical-artifacts.com/artifacts/2331/Orchestra_HQ_Traditional_Realistic_Soundfont.sf2" -O Orchestra.sf2.pkg.tar.zst
+
+    wget "https://musical-artifacts.com/artifacts/2592/SGM-V2.01-XG-1.07.sf2" -O SGM-V2.sf2.pkg.tar.zst
+
+    mv *.sf2.pkg.tar.zst ../
     ls
     pwd
 
