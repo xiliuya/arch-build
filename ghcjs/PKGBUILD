@@ -15,7 +15,7 @@ sha512sums=('SKIP')
 
 pkgver() {
   cd $pkgname
-  git describe --tags | sed 's/-/+/g;s/^v//'
+  echo "r3.3"
 }
 
 build() {
