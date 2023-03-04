@@ -39,7 +39,7 @@ jobs:
   buildNonAUR:
     strategy:
       matrix:
-        PKGBUILDs: [ down ]
+        PKGBUILDs: [ ghcjs ]
 
       fail-fast: false
       

@@ -10,7 +10,6 @@ license=('MIT')
 depends=("cabal-install" 'ghc')
 makedepends=("git" )
 provides=("ghcjs")
-conflicts=("ghcjs")
 source=("$pkgname::git+https://github.com/ghcjs/ghcjs.git")
 sha512sums=('SKIP')
 
