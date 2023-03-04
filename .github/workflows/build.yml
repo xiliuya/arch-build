@@ -9,7 +9,7 @@ jobs:
   buildAUR:
     strategy:
       matrix:
-        repos: [ hello ]
+        repos: [ ghcjs ]
 
       fail-fast: false
       

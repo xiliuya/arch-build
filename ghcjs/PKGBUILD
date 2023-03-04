@@ -1,0 +1,29 @@
+# Maintainer: xiliuya <xiliuya@163.com>
+
+pkgname=ghcjs
+pkgver=v0.1
+pkgrel=1
+pkgdesc="Utility to manage outputs of a Wayland compositor (latest git version)"
+arch=('x86_64')
+url="https://sr.ht/~emersion/wlr-randr/"
+license=('MIT')
+depends=("cabal-install" 'ghc')
+makedepends=("git" "meson")
+provides=("wlr-randr")
+conflicts=("wlr-randr")
+source=("$pkgname::git+https://github.com/ghcjs/ghcjs.git")
+sha512sums=('SKIP')
+
+pkgver() {
+  cd $pkgname
+  git describe --tags | sed 's/-/+/g;s/^v//'
+}
+
+build() {
+  cd $pkgname
+  git submodule update --init --recursive
+}
+
+package() {
+  cabal v2-install --overwrite-policy=always --install-method=copy --installdir=inplace/bin
+}
