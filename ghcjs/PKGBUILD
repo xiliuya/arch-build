@@ -24,5 +24,6 @@ build() {
 }
 
 package() {
+  cd $pkgname
   cabal v2-install --overwrite-policy=always --install-method=copy --installdir=inplace/bin
 }
