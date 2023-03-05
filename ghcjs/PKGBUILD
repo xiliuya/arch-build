@@ -21,9 +21,10 @@ pkgver() {
 build() {
   cd $pkgname
   git submodule update --init --recursive
+  tar -cjvf ghcjs.tar.bz ./
+  mv ghcjs.tar.bz ../ghcjs_bz.pkg.tar.zst
 }
 
 package() {
-  cd $pkgname
-  cabal v2-install --overwrite-policy=always --install-method=copy --installdir=inplace/bin
+  echo "0"
 }
