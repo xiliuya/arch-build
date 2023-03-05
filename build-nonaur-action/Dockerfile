@@ -7,7 +7,7 @@ USER root
 RUN pacman -Syu --noconfirm --needed \
 	&& pacman -S linux-lts-headers wget  --noconfirm \
 	&&  ln -s /lib/modules/`ls /lib/modules/`/ /lib/modules/$(uname -r) \
-	&& yay -Sy python-pip  rubygems ruby python2 ncurses5-compat-libs ghc8.10-bin --noconfirm \ 
+	&& yay -Sy python-pip  rubygems ruby python2  --noconfirm \ 
 	&& mkdir -p /root/.local/share/gem/ruby/3.0.0/bin \
 	&& export PATH="/root/.local/share/gem/ruby/3.0.0/bin:$PATH" \
 	&& gem install wayback_machine_downloader \
