@@ -15,7 +15,7 @@ sha512sums=('SKIP')
 
 pkgver() {
   cd $pkgname
-  echo "r3.3"
+  echo "r3.0"
 }
 
 build() {
